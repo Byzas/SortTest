@@ -7,7 +7,9 @@ def fusion(ListA, ListB):
         return ListB
     if not ListB:
         return ListA
-
+    print(ListA)
+    print("-----")
+    print(ListB)
     #compare the first element of each list and do fusion in recursive
     if ListA[0] <= ListB[0]:
         buffList = []
@@ -16,7 +18,7 @@ def fusion(ListA, ListB):
     else:
         buffList = []
         buffList.append(ListB[0])
-        return buffList + fusion((ListA, ListB[1:len(ListB)]))
+        return buffList + fusion(ListA, ListB[1:len(ListB)])
 
 
 def fusionsort(Intlist):
@@ -25,4 +27,4 @@ def fusionsort(Intlist):
         return Intlist
     else:
         # Divide the list in two part and send in the fusion algorithm
-        return fusion(Intlist[0:int(len(Intlist) / 2)], Intlist[int(len(Intlist) / 2) + 1:len(Intlist)])
+        return fusion(Intlist[0:int(len(Intlist) / 2)], Intlist[int(len(Intlist) / 2) :len(Intlist)])
